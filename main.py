@@ -6,8 +6,27 @@ from uuid import UUID, uuid4
 
 app = FastAPI(
     title="Task Management API",
-    description="API RESTful para la gestión de tareas del proyecto formativo",
-    version="1.0.0"
+    description="""
+    API RESTful para la gestión de tareas del proyecto formativo.
+    
+    Características principales:
+    * Crear tareas con nombre y descripción
+    * Listar todas las tareas
+    * Obtener una tarea específica
+    * Actualizar tareas existentes
+    * Eliminar tareas
+    * Documentación automática de la API
+    """,
+    version="1.0.0",
+    docs_url="/documentacion",
+    redoc_url="/redoc",
+    openapi_tags=[{
+        "name": "Tasks",
+        "description": "Operaciones con tareas: crear, leer, actualizar y eliminar"
+    }, {
+        "name": "General",
+        "description": "Operaciones generales de la API"
+    }]
 )
 
 
@@ -136,4 +155,10 @@ def delete_task(task_id: UUID):
 
 if __name__ == "__main__":
     import uvicorn
-# uvicorn main:app --reload
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        log_level="info"
+    )
