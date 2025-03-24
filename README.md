@@ -14,7 +14,7 @@ API RESTful desarrollada con FastAPI para la gestión de tareas del proyecto for
 
 1. Clonar el repositorio:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
+git clone https://github.com/Ellisvelandia/API-GA7-220501096-AA5-EV02.git
 cd api
 ```
 
